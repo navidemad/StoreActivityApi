@@ -1,4 +1,6 @@
-# Intership Test: Store Activity API Ruby on Rails
+# Welcome to Store Activity API
+
+This repository has been created for an intership entrance test.
 
 [![Build Status](https://travis-ci.org/navidemad/StoreActivityApi.png?branch=master)](https://travis-ci.org/navidemad/StoreActivityApi)
 
@@ -48,6 +50,11 @@ bundle install
 rails db:create db:migrate db:seed
 rails s
 ```
+
+UML
+--------------------------------
+
+![Alt](/erd.png "UML")
 
 Unit Tests
 --------------------------------

@@ -1,0 +1,6 @@
+attributes:
+  - foreign_key
+  - content
+filetype: png
+orientation: vertical
+title: UML
