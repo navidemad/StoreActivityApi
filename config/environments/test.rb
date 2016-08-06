@@ -39,4 +39,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # This way the response format will be transformed into format
+  # conforming JSON API specification.
+  ActiveModelSerializers.config.adapter = :json_api
 end

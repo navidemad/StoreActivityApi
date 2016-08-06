@@ -44,4 +44,8 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # This way the response format will be transformed into format
+  # conforming JSON API specification.
+  ActiveModelSerializers.config.adapter = :json_api
 end

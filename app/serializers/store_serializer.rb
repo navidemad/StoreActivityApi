@@ -1,5 +1,3 @@
 class StoreSerializer < ActiveModel::Serializer
-  attributes :id, :name, :address
-  
-  has_many :visits
+  attributes :id, :name, :address, :visits
 end

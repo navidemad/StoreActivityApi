@@ -75,4 +75,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # This way the response format will be transformed into format
+  # conforming JSON API specification.
+  ActiveModelSerializers.config.adapter = :json_api
 end

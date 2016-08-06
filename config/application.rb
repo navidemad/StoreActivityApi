@@ -32,14 +32,5 @@ module StoreActivityApi
 
     # middleware stack for rate limiting and throttling
     config.middleware.use Rack::Attack
-
-    # allow GET, POST or OPTIONS requests from any origin on any resource
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', headers: :any, methods: [:get, :post, :options]
-      end
-    end
-
   end
 end

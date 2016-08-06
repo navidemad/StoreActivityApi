@@ -1,5 +1,3 @@
 class VisitSerializer < ActiveModel::Serializer
-  attributes :id, :report
-
-  belongs_to :store
+  attributes :id, :report, :store, :user
 end
