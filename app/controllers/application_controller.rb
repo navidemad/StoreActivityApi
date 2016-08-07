@@ -14,8 +14,16 @@ class ApplicationController < ActionController::API
   include ActionController::Serialization
 
   private def authenticate_request
-    @current_user = AuthorizeApiRequest.call(request.headers).result
-    render json: { error: 'Not Authorized' }, status: :unauthorized unless @current_user
+    handle AuthorizeApiRequest.call(request.headers)
+  end
+
+  # handle response
+  private def handle command
+    if command.success?
+      @current_user = command.result
+    else
+      render json: { error: command.errors }, status: :unauthorized
+    end
   end
 
 end
