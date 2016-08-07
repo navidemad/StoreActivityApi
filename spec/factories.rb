@@ -7,8 +7,8 @@ FactoryGirl.define do
     end
 
     factory :default_store, class: Store do
-      name "Auchan"
-      address "Paris"
+      name "Walmart"
+      address "3412 College Ave, San Diego, CA 92115"
     end
 
     factory :default_visit, class: Visit do
