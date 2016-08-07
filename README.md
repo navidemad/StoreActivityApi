@@ -61,6 +61,41 @@ UML
 
 ![Alt](/erd.png "UML")
 
+Usage with cURL commands
+--------------------------------
+
+```
+curl http://localhost:3000/register -X POST -H "Content-Type: application/json" -d '{"username":"default_user","password":"default_password"}'
+{"auth_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0NzMwNTkwOTF9.3SrC-BwVL4xiEe1Wy7YbWuvLxwZPDABBC_oZNsoCT1s"}
+{"error":{"user_authentication":["username is already taken"]}}
+
+# Login to fetch auth-token
+curl http://localhost:3000/login -X POST -H "Content-Type: application/json" -d '{"username":"default_user","password":"default_password"}'
+{"auth_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0NzMwNTkxNDB9.bhbfL8dBK3NcDqySob7-hS4yBd5leeXkBzNj_DKYL6M"}
+{"error":{"user_authentication":["invalid credentials"]}}
+
+# Try to fetch stores with invalid or malformated JWT token in headers
+curl http://localhost:3000/stores -X GET -H "Authorization: eyJ0eXAiOiJKV1QiLC5leeXkBzNj_DKYL6M"
+{"error":{"token":["Invalid token"]}}
+
+# Try to fetch stores without JWT token in headers
+curl http://localhost:3000/stores -X GET
+{"error":"Not Authorized"}
+
+# Try to fetch stores with valid JWT token in headers
+curl http://localhost:3000/stores -X GET -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0NzMwNTkxNDB9.bhbfL8dBK3NcDqySob7-hS4yBd5leeXkBzNj_DKYL6M"
+{"data":[]}
+
+# Create a store with a new name and a new address
+curl http://localhost:3000/stores -X POST -H "Content-Type: application/json" -d '{"name":"Walmart","address":"San Diego County Fair"}' -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE0NzMwNjA1Njd9.MW1Tc_mZq7OMqIxTTrkOaNyftWxS7Pr_qsTymoFP3mI"
+{"data":{"id":"1","type":"stores","attributes":{"name":"Walmart","address":"San Diego County Fair","visits":[]}}}%
+
+# Create a store with already existing name and address
+{"name":["has already been taken"]}
+```
+
+![Alt](/erd.png "UML")
+
 Unit Tests
 --------------------------------
 
