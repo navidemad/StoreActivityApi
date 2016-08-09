@@ -12,7 +12,8 @@ RSpec.describe StoresController, type: :controller do
         expect(response.status).to eq 401
         body = JSON.parse(response.body)
         expect(body.keys).to contain_exactly("error")
-        expect(body["error"]).to eq "Not Authorized"
+        expect(body["error"].has_key?("token")).to be_truthy
+        expect(body["error"]["token"]).to eq ["Missing token"]
       end
 
       it "should return an error 'Not Authorized'" do
