@@ -116,6 +116,7 @@ Credits
 * [Token-based authentication with Ruby on Rails 5 API](http://tutorials.pluralsight.com/ruby-ruby-on-rails/token-based-authentication-with-ruby-on-rails-5-api)
 * [Building the Perfect Rails 5 API Only App](http://sourcey.com/building-the-prefect-rails-5-api-only-app/)
 * [Serving Custom JSON From Your Rails API With ActiveModel::Serializers](https://blog.engineyard.com/2015/active-model-serializers)
+
 Contributing
 --------------------------------------------------------------------------------
 
